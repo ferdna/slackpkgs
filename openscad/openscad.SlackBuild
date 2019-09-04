@@ -73,7 +73,7 @@ qmake -recursive openscad.pro \
   PREFIX=/usr \
   QMAKE_CFLAGS="$SLKCFLAGS" \
   QMAKE_CXXFLAGS="$SLKCFLAGS"
-make
+make -j8
 make install INSTALL_ROOT=$PKG
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
